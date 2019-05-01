@@ -1,3 +1,20 @@
+body {
+  margin: 0;
+}
+
+.container {
+  margin: 80px auto 0 auto;
+  padding: 15px;
+  width: 820px;
+  height: 470px;
+  box-shadow: 0 0 6px 2px rgb(120, 120, 120);
+}
+
 .banner {
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.game-container {
   text-align: center;
 }
