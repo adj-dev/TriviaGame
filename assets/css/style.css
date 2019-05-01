@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  
+
 }
 
 .container {
@@ -18,4 +18,19 @@ body {
 
 .game-container {
   text-align: center;
+}
+
+.start {
+  /* padding: 20px; */
+}
+
+.start > h2 {
+  margin: 0 auto;
+  padding: 15px;
+  width: 120px;
+  background-color: rgb(67, 129, 211);
+}
+
+.start > h2:hover {
+  color: green;
 }
