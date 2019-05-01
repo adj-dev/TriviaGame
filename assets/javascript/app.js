@@ -46,10 +46,25 @@ function renderQuestion() {
     p.text(answer);
     $('.game-container').append(p);
   }
+}
 
-  index++;
+// Add a conditional for wrong vs correct answers
+function renderAnswer() {
+  let answer = questions[index].correctAnswer;
+
+  let h2 = $('<h2>');
+  h2.text("That's correct!");
+
+  let p = $('<p>');
+  p.text(`The answer is: ${answer}`);
+
+  $('.game-container').empty();
+  $('.game-container').append(h2);
+  $('.game-container').append(p);
 }
 
 renderQuestion();
+
+// renderAnswer();
 
 
