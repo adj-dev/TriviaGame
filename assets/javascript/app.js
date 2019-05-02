@@ -1,6 +1,4 @@
 
-
-
 // Define the questions along with their respective answers
 var questions = [
   {
@@ -35,6 +33,8 @@ var index = 0;
 
 //Render the question
 function renderQuestion() {
+  // empty the div
+  $('.game-container').empty();
   let question = questions[index];
   // Question
   let h3 = $('<h3>');
@@ -80,8 +80,11 @@ function renderStart() {
   $('.game-container').html(div);
 }
 
+
+// On load: render the start button
 $(function () {
   renderStart()
+  $('.start h2').click(renderQuestion);
 });
 
 
