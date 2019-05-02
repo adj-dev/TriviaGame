@@ -67,4 +67,21 @@ renderQuestion();
 
 // renderAnswer();
 
+// Render the "Start Page"
+function renderStart() {
+  // clear the div
+  $('.game-container').empty();
+  // inject HTML
+  let div = $('<div>');
+  let h2 = $('<h2>');
+  div.addClass('start')
+  h2.text('Start');
+  div.append(h2);
+  $('.game-container').html(div);
+}
+
+$(function () {
+  renderStart()
+});
+
 
