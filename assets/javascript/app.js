@@ -108,7 +108,6 @@ function renderAnswer() {
   // reset timer
   clearInterval(timer);
   answerTimer();
-  console.log('render');
 
   let choice = $(this).text();
   let answer = questions[index].correctAnswer;
