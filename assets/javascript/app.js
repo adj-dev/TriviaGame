@@ -108,6 +108,7 @@ function renderAnswer() {
   // reset timer
   clearInterval(timer);
   answerTimer();
+  console.log('render');
 
   let choice = $(this).text();
   let answer = questions[index].correctAnswer;
@@ -162,20 +163,10 @@ $(function () {
   // render start button
   renderStart()
   // when start button is clicked, render the 1st question
-  $(document).unbind('click').on('click', '.start h2', () => {
+  $(document).on('click', '.start h2', () => {
     renderQuestion();
     questionTimer();
   }).on('click', '.choice', renderAnswer);
-
-
-  // $('.start h2').click(() => {
-  //   renderQuestion();
-  //   questionTimer();
-  // });
-
-
-  // add click handler for user selected answers
-  // $(document).unbind('click').on('click', '.choice', renderAnswer);
 });
 
 
