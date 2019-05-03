@@ -2,29 +2,39 @@
 // Define the questions along with their respective answers
 var questions = [
   {
-    ask: 'What is your favourite color?',
-    answers: ['Blue', 'Red', 'Green', 'Yellow'],
-    correctAnswer: 'Blue'
+    ask: 'What fictional city is the home of Batman?',
+    answers: ['Metropolis', 'Gotham City', 'Emerald City', 'New York City'],
+    correctAnswer: 'Gotham City'
   },
   {
-    ask: 'What is?',
-    answers: ['Blue2', 'Red2', 'Green2', 'Yellow2'],
-    correctAnswer: 'Red2'
+    ask: 'Spinach is high in which mineral?',
+    answers: ['Calcium', 'Potassium', 'Sodium', 'Iron'],
+    correctAnswer: 'Iron'
   },
   {
-    ask: 'What is your color?',
-    answers: ['Blue3', 'Red3', 'Green3', 'Yellow3'],
-    correctAnswer: 'Green3'
+    ask: 'What is the total number of dots on a pair of dice?',
+    answers: ['42', '21', '12', '15'],
+    correctAnswer: '42'
   },
   {
-    ask: 'is your favorite color?',
-    answers: ['Blue4', 'Red4', 'Green4', 'Yellow4'],
-    correctAnswer: 'Yellow4'
+    ask: 'Which Roman emperor supposedly fiddled while Rome burned?',
+    answers: ['Augustus', 'Nero', 'Commodus', 'Tiberius'],
+    correctAnswer: 'Nero'
   },
   {
-    ask: 'What is your favorite',
-    answers: ['Blue5', 'Red5', 'Green5', 'Yellow5'],
-    correctAnswer: 'Blue5'
+    ask: 'Which planet is the closest to Earth?',
+    answers: ['Venus', 'Mars', 'Jupiter', 'Moon'],
+    correctAnswer: 'Venus'
+  },
+  {
+    ask: 'Which sign of the zodiac is represented by the ram?',
+    answers: ['Taurus', 'Aries', 'Leo', 'Virgo'],
+    correctAnswer: 'Aries'
+  },
+  {
+    ask: 'What is the name of the city where the cartoon family, the Simpsons, live?',
+    answers: ['South Park', 'Plainsville', 'Gotham City', 'Springfield'],
+    correctAnswer: 'Springfield'
   }
 ]
 
@@ -143,7 +153,7 @@ function addScore() {
   $('.timer h1').hide();
   // inject HTML
   let h3 = $('<h3>');
-  h3.text(`Correct: ${correctGuesses} Incorrect: ${incorrectGuesses}`);
+  h3.text(`Correct: ${correctGuesses}     Incorrect: ${incorrectGuesses}`);
   $('.game-container').prepend(h3);
 }
 
