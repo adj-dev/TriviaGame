@@ -1,10 +1,3 @@
-/*
-Add variables to hold data such as number of correct guesses,
-number of incorrect guesses. 
-2.
-For end of game check if (!questions[index])
-*/
-
 
 // Define the questions along with their respective answers
 var questions = [
@@ -40,6 +33,48 @@ var index = 0;
 var correctGuesses = 0;
 var incorrectGuesses = 0;
 
+// Define timers
+var time;
+var timer;
+
+
+function questionTimer() {
+  time = 15;
+
+  // render counter
+  $('.timer').html(`<h1>${time}</h1>`);
+  timer = setInterval(() => {
+    if (time !== 1) {
+      time--;
+      $('.timer').html(`<h1>${time}</h1>`);
+    } else {
+      renderAnswer();
+    }
+  }, 1000);
+}
+
+function answerTimer() {
+  time = 5;
+
+  // render counter
+  $('.timer').html(`<h1>${time}</h1>`);
+  timer = setInterval(() => {
+    if (time !== 1) {
+      time--;
+      $('.timer').html(`<h1>${time}</h1>`);
+    } else if (!questions[index]) {
+      clearInterval(timer);
+      renderStart();
+      addScore();
+      index = 0;
+    } else {
+      clearInterval(timer);
+      renderQuestion();
+      questionTimer();
+    }
+  }, 1000);
+}
+
 //Render the question
 function renderQuestion() {
   // empty the div
@@ -60,6 +95,10 @@ function renderQuestion() {
 
 // Add a conditional for wrong vs correct answers
 function renderAnswer() {
+  // reset timer
+  clearInterval(timer);
+  answerTimer();
+
   let choice = $(this).text();
   let answer = questions[index].correctAnswer;
 
@@ -83,7 +122,6 @@ function renderAnswer() {
 
   // Increment index
   index++;
-  console.log(correctGuesses, incorrectGuesses, index);
 }
 
 // Render the "Start Page"
@@ -99,14 +137,35 @@ function renderStart() {
   $('.game-container').html(div);
 }
 
+// Render the score
+function addScore() {
+  // hide the timer
+  $('.timer h1').hide();
+  // inject HTML
+  let h3 = $('<h3>');
+  h3.text(`Correct: ${correctGuesses} Incorrect: ${incorrectGuesses}`);
+  $('.game-container').prepend(h3);
+}
+
 
 $(function () {
   // render start button
   renderStart()
   // when start button is clicked, render the 1st question
-  $('.start h2').click(renderQuestion);
+  $(document).unbind('click').on('click', '.start h2', () => {
+    renderQuestion();
+    questionTimer();
+  }).on('click', '.choice', renderAnswer);
+
+
+  // $('.start h2').click(() => {
+  //   renderQuestion();
+  //   questionTimer();
+  // });
+
+
   // add click handler for user selected answers
-  $(document).unbind('click').on('click', '.choice', renderAnswer);
+  // $(document).unbind('click').on('click', '.choice', renderAnswer);
 });
 
 
